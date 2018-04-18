@@ -11,7 +11,7 @@ $products = {
     "cake" =>  Cake.all,
     "cupcake" =>  CupCake.all,
 }
-# p $products
+p $products
 # set :bind, "0.0.0.0" # configures sinatra to accept requests from other domains
 
 # see if the files are loaded:

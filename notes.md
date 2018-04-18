@@ -1,5 +1,11 @@
 gem install sinatra
 
+to do:
+
+get classes importing from products.rb
+get form made
+get form submission, and get data from form-fields
+
 # where did it get installed?
 
 * send the html views with sinatra routes
@@ -122,3 +128,62 @@ No Marks
 5.0 pts
 Total Points: 35.0
 Previous Next
+
+echo "export SENDGRID_API_KEY='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'" > sendgrid.env
+echo "sendgrid.env" >> .gitignore
+source ./sendgrid.env
+
+email:
+
+require 'sinatra'
+require 'sendgrid-ruby'
+
+include SendGrid
+
+get '/' do  
+ erb :index
+end
+
+post '/contact' do
+
+@email = params[:email]
+@opinion = params[:opinion]
+
+from = Email.new(email: @email)
+to = Email.new(email: 'allie.g.cooper@gmail.com')
+subject = 'My Election Musings'
+content = Content.new(type: 'text/plain', value: @opinion)
+mail = Mail.new(from, subject, to, content)
+
+sg = SendGrid::API.new(api*key: ENV['SENDGRID_API_KEY'])
+response = sg.client.mail.*('send').post(request_body: mail.to_json)
+if response.status_code == 401
+error_hash = JSON.parse(response.body)
+@errors = error_hash["errors"]
+end
+end
+
+from site:
+
+# using SendGrid's Ruby Library
+
+# https://github.com/sendgrid/sendgrid-ruby
+
+https://app.sendgrid.com/guide/integrate/langs/ruby
+
+require 'sendgrid-ruby'
+include SendGrid
+
+from = Email.new(email: 'test@example.com')
+to = Email.new(email: 'test@example.com')
+subject = 'Sending with SendGrid is Fun'
+content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
+mail = Mail.new(from, subject, to, content)
+
+sg = SendGrid::API.new(api*key: ENV['SENDGRID_API_KEY'])
+response = sg.client.mail.*('send').post(request_body: mail.to_json)
+puts response.status_code
+puts response.body
+puts response.headers
+
+questions: where would we put a file that we want to write to?

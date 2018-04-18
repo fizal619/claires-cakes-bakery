@@ -1,3 +1,5 @@
+/* @import url("styles/links.css") */
+/* figure out how to get this import statement to work */
 body {
   background-color: pink;
 }
