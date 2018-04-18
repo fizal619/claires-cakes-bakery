@@ -3,6 +3,7 @@ require_relative './Baked_Goods.rb'
 
 class Muffin < BakedGood
   # how to access this class variable from outside the class?
+  attr_accessor :category, :title, :photo, :price, :description
   def initialize(title, photo, price, description)
     super('muffin', title, photo, price, description)
     # store the instance in the class variable @@all
