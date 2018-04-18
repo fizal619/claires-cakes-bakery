@@ -8,6 +8,14 @@ class Cake < BakedGood
         # store the instance in the class variable @@all
         @@all.push(self)
     end
+    
+    def to_json
+        {
+            title: @title,
+            etc...
+        }.to_json()
+    end
+    
     # how can I get this to work with this variable and method in the super class instead?
     @@all = []
     def self.all
