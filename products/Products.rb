@@ -8,11 +8,10 @@ require_relative './Muffins.rb'
 # load 'Cup_Cakes.rb'
 # load 'Muffins.rb'
 
-# how to have this on the BakedGood class?
+# how to have this on the BakedGood super class?
 $all_products = {
     cake: $all_cakes,
     cupcake: $all_cupcakes,
     muffin: $all_muffins
  }
 p $all_products
-

@@ -2,3 +2,4 @@
 console.log('links js is loaded');
 
 const productLinks = document.getElementsByClassName('productLink');
+console.log(`productLinks: ${productLinks}`);
