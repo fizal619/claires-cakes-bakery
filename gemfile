@@ -1,1 +1,4 @@
-gem 'sendgrid-ruby'
+source 'https://rubygems.org' do
+    gem 'sengrid-ruby'
+    gem 'json'
+end

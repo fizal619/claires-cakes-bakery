@@ -8,7 +8,7 @@ function requestPromise(uri, method = 'GET') {
     xhr.open(method, uri);
     xhr.send();
     xhr.onload = function () {
-      resolve(xhr.responseText);
+      resolve(JSON.stringify(xhr.responseText));
     };
     xhr.onerror = function () {
       reject(xhr.statusText);

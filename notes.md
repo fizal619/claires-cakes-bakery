@@ -187,3 +187,19 @@ puts response.body
 puts response.headers
 
 questions: where would we put a file that we want to write to?
+how do we get the ENV variables to be accessible via
+
+store your api key to your bash profile
+
+get into bash profile: open ~/.bash_profile'
+
+set source code #?
+SOURCE ~/.bash_profile
+
+maybe have to get it from regular terminal, not
+export SENGRID_API_KEY = "apikey"
+
+access it via ENV["SENGRID_API_KEY"]
+
+in the terminal
+echo $SENGRID_API_KEY
