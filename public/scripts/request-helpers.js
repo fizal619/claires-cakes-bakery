@@ -18,14 +18,13 @@ function requestPromise(uri, method = "GET") {
 const request = requestPromise("http://localhost:4567/test", "GET");
 request
   .then(data => {
+    // #note:  This is where I am trying to get the JSON and put it's values into the DOM
     console.log(typeof data);
-    // let div = document.getElementById("test");
-
-    data = JSON.parse(JSON.parse(data));
-
-    console.log(typeof data);
-    console.log(Object.keys(data));
-    div.innerHTML = data;
+    console.log(data);
+    let obj = JSON.parse(JSON.parse(data));
+    let text = obj.title;
+    let div = document.getElementById("test");
+    div.innerHTML = text;
   })
   .catch(err => {
     console.log(`error in the response: ${err}`);
