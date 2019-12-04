@@ -3,7 +3,7 @@ require 'json'
 # require 'sengrid-ruby'
 # include SenGrid
 require_relative './products/Products.rb'
-
+set :port, 3000
 
 # note: this is an object containing objects of all my bakery products.  It is commented-out, in order to practice on dummy data:
 # p $all_products

@@ -1,0 +1,6 @@
+---
+# tasks file for ruby
+- name: install the latest version of Ruby
+  yum:
+    name: ruby
+    state: latest
